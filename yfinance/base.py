@@ -371,7 +371,7 @@ class TickerBase():
             self._recommendations = rec[[
                 'Firm', 'To Grade', 'From Grade', 'Action']].sort_index()
         except Exception:
-            pass
+            self._recommendations = ['hej']
 
         # get fundamentals
         data = utils.get_json(url+'/financials', proxy)
