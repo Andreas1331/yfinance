@@ -361,6 +361,7 @@ class TickerBase():
 
         # analyst recommendations
         try:
+            print("debug0")
             rec = _pd.DataFrame(
                 data['upgradeDowngradeHistory']['history'])
             print("debug1")
