@@ -363,15 +363,20 @@ class TickerBase():
         try:
             rec = _pd.DataFrame(
                 data['upgradeDowngradeHistory']['history'])
+            print("debug1")
             rec['earningsDate'] = _pd.to_datetime(
                 rec['epochGradeDate'], unit='s')
+            print("debug2")
             rec.set_index('earningsDate', inplace=True)
+            print("debug3")
             rec.index.name = 'Date'
+            print("debug4")
             rec.columns = utils.camel2title(rec.columns)
+            print("debug5")
             self._recommendations = rec[[
                 'Firm', 'To Grade', 'From Grade', 'Action']].sort_index()
         except Exception:
-            self._recommendations = ['hej']
+            pass
 
         # get fundamentals
         data = utils.get_json(url+'/financials', proxy)
