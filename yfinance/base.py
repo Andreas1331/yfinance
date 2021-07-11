@@ -173,7 +173,6 @@ class TickerBase():
             shared._ERRORS[self.ticker] = err_msg
             if "many" not in kwargs and debug_mode:
                 print('- %s: %s' % (self.ticker, err_msg))
-            raise Exception("Symbol doesn't exist")
             return shared._DFS[self.ticker]
 
         elif "chart" not in data or data["chart"]["result"] is None or \
